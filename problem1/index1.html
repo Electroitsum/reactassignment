@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document1</title>
+  </head>
+  <body>
+    <main>
+      <input class="inp-data" type="text" />
+      <button id="submit">submit</button>
+      <div class="display"></div>
+    </main>
+  </body>
+  <script>
+    const data = document.querySelector(".inp-data");
+    const display = document.querySelector(".display");
+    const btn = document
+      .querySelector("#submit")
+      .addEventListener("click", () => {
+        var rawData = data.value;
+        rawData = rawData.replace(/\s+/g, "");
+        rawData = rawData.toUpperCase();
+        var repeat = {};
+        var datArr = [];
+        rawData = rawData.split("");
+        rawData.forEach((element) => {
+          repeat[element] = (repeat[element] || 0) + 1;
+        });
+        display.innerText = Object.entries(repeat);
+      });
+  </script>
+</html>
